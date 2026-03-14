@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Shibine 💋</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  font-family:Arial;
+  overflow:hidden;
+  text-align:center;
+}
+
+h1{
+  font-size:40px;
+  color:white;
+  z-index:2;
+}
+
+#miss{
+  font-size:30px;
+  color:white;
+  margin-top:20px;
+  display:none;
+}
+
+.emoji{
+  position:absolute;
+  top:-50px;
+  font-size:35px;
+  animation: fallBounce 4s linear forwards;
+}
+
+@keyframes fallBounce{
+  0%{transform:translateY(-100px);}
+  70%{transform:translateY(80vh);}
+  85%{transform:translateY(70vh);}
+  100%{transform:translateY(80vh);}
+}
+
+.explode{
+  position:absolute;
+  font-size:35px;
+  animation:explode 1s ease-out forwards;
+}
+
+@keyframes explode{
+  0%{transform:scale(0.5);opacity:1;}
+  100%{transform:translateY(-100px) scale(2);opacity:0;}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>shibine ummmahhhh💋😽😌🎀❤️....</h1>
+<div id="miss">miss u 🙂❤️</div>
+
+<!-- romantic music -->
+<audio autoplay loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_1f7bb9c02c.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+// show miss message after 3 seconds
+setTimeout(function(){
+document.getElementById("miss").style.display="block";
+},3000);
+
+
+// falling 😘 emoji every 1 second
+function createEmoji(){
+const emoji=document.createElement("div");
+emoji.classList.add("emoji");
+emoji.innerHTML="😘";
+
+emoji.style.left=Math.random()*100+"vw";
+
+document.body.appendChild(emoji);
+
+setTimeout(function(){
+emoji.remove();
+},4000);
+}
+
+setInterval(createEmoji,1000);
+
+
+// kisses explode when screen tapped
+document.addEventListener("click",function(e){
+
+for(let i=0;i<10;i++){
+const kiss=document.createElement("div");
+kiss.classList.add("explode");
+kiss.innerHTML="💋";
+
+kiss.style.left=e.clientX + (Math.random()*100-50) + "px";
+kiss.style.top=e.clientY + (Math.random()*100-50) + "px";
+
+document.body.appendChild(kiss);
+
+setTimeout(()=>{
+kiss.remove();
+},1000);
+}
+
+});
+
+</script>
+
+</body>
+</html>
